@@ -12,6 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
+  /* height of the fixed Tap-to-Call bar at the bottom of the viewport;
+     used to keep the first view's bottom 56px of content out from under it */
+  --callbar-h:56px;
   --ink:#07090d; --ink2:#0d1117; --panel:#141a22; --panel2:#1b2430;
   --steel:#7f8ea0; --mist:#b6c3d1; --white:#eef3f8;
   --neon:#ffb11f; --neon-hot:#ffd166; --ice:#38e0ff; --aurora:#44e39a;
@@ -188,6 +191,18 @@ footer .ag{color:rgba(255,209,102,.75);font-family:var(--cond);letter-spacing:.1
   header{padding:.7rem 1rem}
   .logo{font-size:1.02rem}
   .call-top{font-size:.84rem;padding:.5rem .8rem}
+  /* --- Tap-to-Call bar clearance (phones only) -------------------------
+     .sticky-call is position:fixed, so the bottom var(--callbar-h) of the
+     first view is covered by the bar and is not usable space. The hero is
+     taller than what is left, which pushed its last line - the address -
+     under the bar. Shorten the hero's reserved height by the bar, pull its
+     top padding in by the same amount (never tighter than 1rem) and tighten
+     the two gaps above the address line. Measured clearance at 390x844 is
+     then >=15px even with the webfonts unavailable (fallback metrics run
+     taller). Desktop layout, colours and animation are untouched. */
+  .hero{min-height:calc(94vh - var(--callbar-h));padding-top:max(1rem,calc(3.5rem - var(--callbar-h)))}
+  .hero .sub{margin-bottom:1.4rem}
+  .hero .pin{margin-top:.8rem}
 }
 </style>
 </head>
