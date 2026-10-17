@@ -124,7 +124,7 @@ h2 em{font-style:normal;color:var(--neon)}
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;text-align:center;padding:1rem;transition:border-color .3s ease,transform .3s ease}
 .gal figure:hover{border-color:var(--neon);transform:translateY(-4px)}
 .gal svg{width:34px;height:34px;color:rgba(255,177,31,.6)}
-.gal figcaption{font-family:var(--cond);font-size:.84rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,209,102,.85)}
+.gal figcaption{font-family:var(--cond);font-size:.84rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,209,102,.85);max-width:100%;overflow-wrap:anywhere}
 .gal small{display:block;font-size:.72rem;color:rgba(182,195,209,.5);letter-spacing:0;text-transform:none;font-family:var(--body)}
 
 /* area */
@@ -189,7 +189,7 @@ footer .ag{color:rgba(255,209,102,.75);font-family:var(--cond);letter-spacing:.1
   .svc-grid{grid-template-columns:1fr}
   .svc.feature{grid-column:span 1;min-height:340px}
   .svc.feature .art{width:118px;opacity:.55}
-  .gal{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
   section{padding:3.3rem 1.05rem}
   header{padding:.7rem 1rem}
   .logo{font-size:1.02rem}
